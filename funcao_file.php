@@ -13,6 +13,7 @@
         foreach ($linhas as $linha_num => $linha){
             echo "Linha #{$linha_num} : ".$linha." <br>";
         }
-    ?>    
+    ?> 
+    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>   
 </body>
 </html>

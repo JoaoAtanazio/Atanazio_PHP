@@ -14,5 +14,6 @@
         $turma2 = implode("...", $turma1);
         echo "turma2: $turma2 <br/>";
     ?>
+    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>
 </body>
 </html>

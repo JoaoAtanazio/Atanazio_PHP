@@ -11,5 +11,6 @@
         echo nl2br($texto);
         var_dump($texto);
     ?>
+    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>
 </body>
 </html>

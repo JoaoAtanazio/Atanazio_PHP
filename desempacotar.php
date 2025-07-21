@@ -14,5 +14,6 @@
         echo "Gênero:".$genero."<br/>";
         echo "QI:".$qi."<br/>";
     ?>
+    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>
 </body>
 </html>

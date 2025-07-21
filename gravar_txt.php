@@ -13,5 +13,6 @@
         echo nl2br($texto). "<hr/>";
         file_put_contents("texto.txt", $texto);
     ?>
+    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>
 </body>
 </html>

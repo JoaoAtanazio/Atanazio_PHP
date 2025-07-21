@@ -12,5 +12,6 @@
         echo "Curso: $telefone <br/><br>";
         echo "Passatempo: $codigo <br/><br>";
     ?>
+    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>
 </body>
 </html>

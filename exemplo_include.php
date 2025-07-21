@@ -10,6 +10,7 @@
         <?php include("menu.php"); ?>
     </div>
     <h1> Bem Vindo a Página</h1>
-    <p>Um menu aqui</p>    
+    <p>Um menu aqui</p>   
+    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center> 
 </body>
 </html>
