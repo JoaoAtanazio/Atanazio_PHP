@@ -7,9 +7,10 @@
 </head>
 <body>
     <?php
-        for ($i = 0; $i < 10; $i++)
-            print "O quadrado de $i é ". $i * $i . "<br/>"
+        list($nome,$telefone,$codigo) = file("pessoais.txt");
+        echo "Nome: $nome <br/><br>";
+        echo "Curso: $telefone <br/><br>";
+        echo "Passatempo: $codigo <br/><br>";
     ?>
-    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>
 </body>
 </html>

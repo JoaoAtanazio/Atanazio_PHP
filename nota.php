@@ -19,5 +19,6 @@
         echo("Você ficou de exame! sua nota foi ".$media);
     }
     ?>
+    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>
 </body>
 </html>

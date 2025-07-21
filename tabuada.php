@@ -57,5 +57,6 @@
         print "$n1 X $num2 = ". $n10 * $num2. "<br>";
     print('<br>');
     ?>
+    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>
 </body>
 </html>

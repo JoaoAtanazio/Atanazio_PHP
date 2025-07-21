@@ -1,0 +1,143 @@
+body{
+    font-family: sans-serif;
+}
+.btn:hover{
+    background-color: #b8b5b5;
+}
+.btn1{
+    display: flex;
+    flex-direction: row;
+    width:12%;
+    background-color: #aaa;
+    border:  1px solid black;
+    padding: 0.4rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer; 
+    text-decoration: none;
+    color:black;
+    margin-right:30px;
+    transform: translate(100px, 34px);
+}
+.btn2 {
+    display: flex;
+    flex-direction: row;
+    width:12%;
+    background-color: #aaa;
+    border:  1px solid black;
+    padding: 0.4rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer; 
+    text-decoration: none;
+    color:black;
+    margin-right:30px;
+    transform: translateX(-70px);
+}
+.form-buttons {
+
+    margin-top: 1rem;
+    cursor:none;
+    width:100%;
+}
+  
+.form-group td {
+    width: 100px;
+    font-weight: bold;
+}
+.form-group input {
+    flex: 1;
+    padding: 0.4rem;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+.tabela_form{
+   border-color:black;
+   font-family: sans-serif;
+   background-color: rgb(167, 167, 173);
+   border-radius: 6px;
+   border: 20px;
+   border: 1px solid black;
+}
+.textopecas{
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: 600;
+    background: linear-gradient(45deg, #c2bdbd, #3a3737, #aaa, #303030);
+    background-size: 400% 400%; /* Amplia o gradiente para permitir a animação */
+    animation: gradientAnimation 15s ease infinite;
+}
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+.botao{
+    transform: translateY(390px);
+}
+.data{
+    width:92%;
+}
+ul{
+    list-style-type: none; /* tira as bolinhas padrão */
+    margin: 0px; /* remove espaçamentos */
+    padding: 0px; /* remove espaçamentos */
+    overflow: hidden; /* evita que o contéudo ultrapasse o tamanho da caixa */
+    background-color: #1e1e1e; /*Define a cor de fundo*/
+}
+
+li{
+    float: left; /* Os itens vão ficar um do lado do utro, tipo menu horizontal*/
+}
+li a, .dropbtn{
+    display: inline-block;
+    color:white;
+    text-align:center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn{
+    background-color: #2e2e2e;
+}
+
+li .dropdown{
+    display: inline-block;
+}
+
+.dropdown-content{
+    display:none;
+    position: absolute;
+    background-color: #1E1E1E;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px(0,0,0,0.2);
+    z-index: 1;
+    
+}
+
+.dropdown-content a{
+    color: white;
+    padding:12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+    .dropdown-content a:hover{
+        background-color:#2e2e2e;
+
+    }
+
+    .dropdown:hover .dropdown-content{
+        display: block;
+    }
+.h2class{
+    text-align:center;
+    color:blue;
+}    

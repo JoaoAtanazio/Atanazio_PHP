@@ -7,9 +7,14 @@
 </head>
 <body>
     <?php
-        for ($i = 0; $i < 10; $i++)
-            print "O quadrado de $i é ". $i * $i . "<br/>"
+        foreach(file("explode_livros.txt") as $livro)
+        {
+            list($titulo, $autor) = explode(",", $livro);
+        
     ?>
-    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>
+    <p> Título: <?= $titulo ?>, Autor: <?=$autor ?> </p>
+    <?php
+        }
+    ?>
 </body>
 </html>

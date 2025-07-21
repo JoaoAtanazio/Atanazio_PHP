@@ -24,7 +24,7 @@
         echo "<hr/>REVERSE: Retorna um array com os elementos no final de um array<br/>";
         array_push($estados, "pr");
         echo "PUSH: "; print_r ($estados);
-        echo "<hr/>PUSH: Adiciona um ou mais elementos na ordem inversa<br/>"
+        echo "<hr/>PUSH: Adiciona um ou mais elementos na ordem inversa<br/>";
         $inverso = array_reverse($estados);
         echo "REVERSE: "; print_r ($inverso);
         echo "<hr/>SORT: Ordena um array<br/>";
@@ -34,5 +34,6 @@
         $dividir = array_slice($estados, 1, 2);
         echo "SLICE: "; print_r ($dividir); echo "<br/>";
     ?>
+    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>
 </body>
 </html>

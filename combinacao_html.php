@@ -13,5 +13,6 @@
         $data_hoje = date ("d/m/y", time());
     ?>
     <p align="center">Hoje é dia <?php echo $data_hoje; ?>
+    <center><tag> João Vitor Atanazio | Desenvolvimento de Sistemas</center>
 </body>
 </html>
