@@ -12,7 +12,7 @@
             <legend>Nova tarefa</legend>
                 <label>
                     Tarefa:
-                    <input type="text" name="nome" />
+                    <input type="text" name="Tarefa" />
                  </label>
                  <label>
                     Descrição(Opcional):
@@ -20,16 +20,16 @@
                  </label>
                  <label>
                     Prazo (Opcional):
-                    <input type="text" name="prazo" />
+                    <input type="date" name="prazo" />
                 </label>
         <fieldset>
             <legend>Prioridade:</legend>
                 <label>
-                <input type="radio" name="prioridade" value="baixa" checked />
+                <input type="radio" name="prioridade" value="1" checked />
                     Baixa    
-                <input type="radio" name="prioridade" value="media"/>
+                <input type="radio" name="prioridade" value="2"/>
                      Média   
-                <input type="radio" name="prioridade" value="alta"/>
+                <input type="radio" name="prioridade" value="3"/>
                      Alta
                 </label>
         </fieldset>
@@ -50,7 +50,7 @@
         </tr>                
     <?php foreach($lista_tarefas as $tarefa) : ?>
         <tr>
-            <td><?php echo $tarefa['nome']; ?>  </td>
+            <td><?php echo $tarefa['Tarefa']; ?>  </td>
             <td><?php echo $tarefa['descricao']; ?>  </td>
             <td><?php echo $tarefa['prazo']; ?>  </td>
             <td><?php echo $tarefa['prioridade']; ?>  </td>

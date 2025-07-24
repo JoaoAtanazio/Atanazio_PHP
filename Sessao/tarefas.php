@@ -1,32 +1,38 @@
-<?php 
-session_start(); 
+<?php session_start(); 
+    include "banco.php";
 
-        if (isset($_GET['nome']) && $_GET['nome'] != '') {
-            $tarefa = array();
+    if (isset($_GET['Tarefa']) && $_GET['Tarefa'] != '') {
+        $tarefa = array();
+        $tarefa['Tarefa'] = $_GET['Tarefa'];
 
-            $tarefa['nome'] = $_GET['nome'];
-
-        if (isset($_GET['descricao'])) {
-            $tarefa['descricao'] = $_GET['descricao'];
-            } else {
-                $tarefa['descricao'] = '';
-            }    
-        if (isset($_GET['prazo'])) {
-            $tarefa['prazo'] = $_GET['prazo'];
-            }else {
-                 $tarefa['prazo'] = '';
+    if(isset($_GET['descricao'])) { 
+        $tarefa['descricao'] = $_GET['descricao']; 
+    } else {
+        $tarefa['descricao'] = '';
             }
-            $tarefa['prioridade'] = $_GET['prioridade'];
 
-        if(isset($_GET['concluida'])) {
-            $tarefa['concluida'] = $_GET['concluida'];
-        } else {
-            $tarefa['concluida'] = '';
+    if(isset($_GET['prazo'])) {
+        $tarefa['prazo'] = $_GET['prazo']; 
+    } else {
+        $tarefa['prazo'] = '';
             }
-        $_SESSION['lista_tarefas'][] = $tarefa;
-}       
-                 $lista_tarefas = buscar_tarefas($conexao);
-        include "template.php";   
-    ?>
-</body>
-</html>
+
+    $tarefa['prioridade'] = $_GET['prioridade'];
+
+    if(isset($_GET['concluida'])) {
+        $tarefa['concluida'] = $_GET['concluida']; 
+    } else {
+        $tarefa['concluida'] = ''; 
+            }
+
+        gravar_tarefa($conexao, $tarefa);
+}
+
+
+
+    $lista_tarefas = buscar_tarefas($conexao);
+
+    include "template.php";
+    
+
+?>
