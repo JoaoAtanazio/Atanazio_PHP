@@ -1,0 +1,37 @@
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none !important;
+}
+.body{
+    background-color: #ffecce !important;
+    font-family:'Times New Roman', Times, serif;
+    
+}
+.dropdown{
+    display: flex;
+    justify-content: center;
+}
+.navega a{
+    margin-bottom: 5px;
+    color:white;
+    display:flex;
+    flex-direction: column;
+    width:150px;
+    text-align: justify;
+}
+.sign{
+    background-color: #ffecce !important;
+    border-color: #ffecce !important;
+}
+.menu{
+    font-size:30px !important;
+}
+.form{
+    margin-bottom:10px;
+}
+.busca{
+    transform: translateY(10px);
+    border-radius: 5px;
+    border-width: 1px;
+}
