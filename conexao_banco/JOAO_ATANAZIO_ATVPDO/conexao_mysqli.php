@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="estilos.css" type="text/css">
     <title>Document</title>
 </head>
-<body class="body">
+<body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">Home</a>
@@ -35,27 +32,32 @@
 </nav>
 </body>
 </html>
+
 <?php
-    require_once 'conexao_pdo.php';
+    //Habilita relatório detalhado de erros no MySQLi
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $conexao = conectarBanco();
+/**
+ * Função para conectar ao banco de dados
+ * Retorna um objeto de conexão MySQLi ou imterrompe o script em caso de erro.
+ */
 
-        $sql = "INSERT INTO cliente(nome, endereco, telefone, email)
-            VALUES(:nome, :endereco, :telefone, :email)";
-    
-
-    $stmt = $conexao->prepare($sql);
-    $stmt->bindParam(":nome",$_POST["nome"]);
-    $stmt->bindParam(":endereco",$_POST["endereco"]);
-    $stmt->bindParam(":telefone",$_POST["telefone"]);
-    $stmt->bindParam(":email",$_POST["email"]);
-    try{
-        $stmt->execute();
-        echo "Cliente cadastrado com sucesso!";
-    } catch(PDOException $e){
-        error_log("Erro ao inserir cliente: ". $e->getMessage());
-        echo "Erro ao cadastrar cliente.";
+    function conectadb(){
+        $endereco = "localhost"; // Endereço do servidor MySQL
+        $usuario = "root"; //Nome de usuário do banco de dados
+        $senha = ""; //Senha do banco de dados
+        $banco = "empresa"; //Nome do banco de dados
     }
-}
+
+    try{
+        //Criação de conexão
+        $con = new mysqli($endereco, $usuario, $senha, $banco);
+
+        //Definição do conjunto de caracteres para evitar problemas de acentuação
+        $con->set_charset("utf8mb4");
+        return $con;
+    } catch (Exception $e){
+        //Exibe uma mensagem de erro e encerra o script
+        die("Erro na conexão:".$e->getMessage());
+    }
 ?>

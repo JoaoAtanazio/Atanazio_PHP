@@ -1,3 +1,5 @@
+
+  
 <?php
     //Habilita relatório detalhado de erros no MySQLi
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -12,7 +14,6 @@
         $usuario = "root"; //Nome de usuário do banco de dados
         $senha = ""; //Senha do banco de dados
         $banco = "empresa"; //Nome do banco de dados
-    }
 
     try{
         //Criação de conexão
@@ -25,4 +26,5 @@
         //Exibe uma mensagem de erro e encerra o script
         die("Erro na conexão:".$e->getMessage());
     }
+}
 ?>
