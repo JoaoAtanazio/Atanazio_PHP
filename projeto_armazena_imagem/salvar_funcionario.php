@@ -8,7 +8,7 @@ function redimensionarImagem($imagem,$largura,$altura){
 
     //CRIA UMA NOVA IMAGEM EM BANCO COM AS NOVAS DIMENSOES
     //imagecreatetruecolor() CRIA UMA NOVA IMAGEM EM BRANCO EM ALTA QUALIDADE
-    $novaImagem = imagecreatetruecolor($largura,$altura)
+    $novaImagem = imagecreatetruecolor($largura,$altura);
     
     // CARREGA A IMAGEM ORIGINAL (JPEG) A PARTIR DO ARQUIVO
     //imagecreatefromjpeg() CRIA UMA IMAGEM PHP A PARTIR DE UM JPEG
@@ -46,7 +46,7 @@ $password = '';
 try{
     // CONEXAO COM O BANCO DE DADOS USANDO PDO
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username,$password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE); //DEFINE QUE ERROS VAO LANÇAR EXCEÇÕES
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //DEFINE QUE ERROS VAO LANÇAR EXCEÇÕES
 
     // VERIFICA SE FOI UM POST E SE TEM ARQUIVO 'foto'
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto'])){
@@ -58,8 +58,44 @@ try{
             $tipoFoto = $_FILES['foto']['type']; // PEGA O TIPO MIME DA IMAGEM
 
         // REDIMENSIONA A IMAGEM
-        $foto = redimensionarImagem($_FILES['foto']['name'].)
+        $foto = redimensionarImagem($_FILES['foto']['tmp_name'], 300, 400); // tmp_name É O CAMINHO TEMPORARIO
+
+        // INSERE NO BANCO DE DADOS USANDO SQL PREPARADA
+        $sql = "INSERT INTO funcionarios (nome, telefone, nome_foto,tipo_foto,foto)
+                VALUES(:nome,:telefone,:nome_foto,:tipo_foto,:foto)";
+        $stmt = $pdo->prepare($sql); // PREPARA A QUERY PARA EVITAR ATAQUE sql injecton'
+        $stmt->bindParam(':nome',$nome); //LIGA OS PARAMETROS AS VARIAVEIS
+        $stmt->bindParam(':telefone',$telefone); //LIGA OS PARAMETROS AS VARIAVEIS
+        $stmt->bindParam(':nome_foto',$nomeFoto); //LIGA OS PARAMETROS AS VARIAVEIS
+        $stmt->bindParam(':tipo_foto',$tipoFoto); //LIGA OS PARAMETROS AS VARIAVEIS
+        $stmt->bindParam(':foto',$foto, PDO::PARAM_LOB); //LOB = Large Object USADO PARA DADOS BINARIOS COM IMAGENS
+
+        if($stmt->execute()){
+            echo "Funcionario cadastrado com sucesso";
+        } else{
+            echo "Erro ao cadastrar o funcionario";
         }
+    } else {
+        echo "Erro ao fazer o UPLOAD da foto! Codigo: ".$_FILES['foto']['error'];
     }
+  }
+} catch(PDOException $e) {
+    echo "Erro".$e->getMessage(); // Mostra o erro se houver;
 }
 ?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Imagens</title>
+</head>
+<body>
+    <h1>Lista de imagens</h1>
+
+    <a href="consulta_funcionario.php">Listar Funcionarios</a>
+    <center>
+<tag> João Vitor Atanazio | Desenvolvimento de Sistemas </tag>
+        </center>
+</body>
+</html>

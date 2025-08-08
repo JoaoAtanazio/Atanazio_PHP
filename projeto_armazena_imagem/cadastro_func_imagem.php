@@ -11,7 +11,7 @@
         <h1>Cadastro</h1>
         <h2>Funcionário</h2>
 <!-- FORMULARIO PARA CADASTRAR UM FUNCIONARIO-->
-    <form action="salvar_funcionario.php" method="POST" enctype="multipart/form/data">
+    <form action="salvar_funcionario.php" method="POST" enctype="multipart/form-data">
         <!-- CAMPO PARA INSERIR O NOME DO FUNCIONARIO -->
         <label for="nome">NOME:</label>
         <input type="text" name="nome" id="nome" required><br>
@@ -27,5 +27,8 @@
 
 
     </div>
+    <center>
+<tag> João Vitor Atanazio | Desenvolvimento de Sistemas </tag>
+        </center>
 </body>
 </html>
